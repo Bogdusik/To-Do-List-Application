@@ -55,7 +55,6 @@ public class TaskController {
         task.setCompleted(true);
         taskRepository.save(task);
 
-        // Убедитесь, что task.getDescription() возвращает строку
         ActionLog actionLog = new ActionLog("Completed Task with ID: " + id, task.getDescription(), true);
         actionLogRepository.save(actionLog);
 
@@ -73,7 +72,6 @@ public class TaskController {
 
         taskRepository.deleteById(id);
 
-        // Убедитесь, что task.getDescription() возвращает строку
         ActionLog actionLog = new ActionLog("Deleted Task with ID: " + id, task.getDescription(), true);
         actionLogRepository.save(actionLog);
 
@@ -82,7 +80,6 @@ public class TaskController {
     }
 
 
-    // Error handling for task not found
     @ExceptionHandler(NoSuchElementException.class)
     public String handleTaskNotFound(NoSuchElementException e, Model model) {
         logger.error("Task not found: {}", e.getMessage());
@@ -90,7 +87,6 @@ public class TaskController {
         return "error";
     }
 
-    // Global error handler (Optional)
     @ExceptionHandler(Exception.class)
     public String handleGlobalError(Exception e, Model model) {
         logger.error("An error occurred: {}", e.getMessage());

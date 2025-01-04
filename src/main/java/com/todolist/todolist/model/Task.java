@@ -1,14 +1,12 @@
 package com.todolist.todolist.model;
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
-@Table(name = "tasks") // Опционально, для указания имени таблицы
+@Table(name = "tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //@NotNull
     private String description;
     private boolean completed;
 

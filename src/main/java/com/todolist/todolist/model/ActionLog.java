@@ -14,9 +14,9 @@ public class ActionLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String actionName;
-    private String taskDescription;  // Description of the task
+    private String taskDescription;
     private boolean actionPerformed;
-    private ZonedDateTime date;  // Use ZonedDateTime for UTC time
+    private ZonedDateTime date;
 
     public ActionLog() {}
 
@@ -24,7 +24,7 @@ public class ActionLog {
         this.actionName = actionName;
         this.taskDescription = taskDescription;
         this.actionPerformed = actionPerformed;
-        this.date = ZonedDateTime.now(ZoneOffset.UTC);  // Set the current UTC time
+        this.date = ZonedDateTime.now(ZoneOffset.UTC);
     }
 
     public Long getId() {
